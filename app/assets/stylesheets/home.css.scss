@@ -1,3 +1,130 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+p {
+  line-height: 20px;
+}
+
+#content article {
+  &.experience {
+    ul {
+      margin: 5px 0 20px 0;
+      padding: 0;
+    }
+
+    li {
+      line-height: 20px;
+      list-style: none;
+      border-top: 1px solid #aaa;
+      padding: 4px 4px 4px 25px; }
+    }
+
+  &.skills {
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      margin: 2px 0;
+      list-style: none;
+      padding: 3px;
+      background-color: #c9c9c9; 
+    }
+  }
+}
+
+#wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#top {
+  padding: 20px;
+  h1 {
+    margin: 5px 0;
+    font-size: 30pt;
+    .highlight {
+      color: #EA2E49;
+    }
+  }
+
+  .leftcol, .rightcol {
+    float: left;
+    padding: 20px;
+    height: 80px;
+  }
+
+  .leftcol {
+    width: 590px;
+  }
+
+  .rightcol {
+    width: 160px;
+    border-left: 1px solid #bbb;
+  }
+}
+
+
+#content {
+  .leftcol, .rightcol {
+    padding: 20px;
+    float: left;
+  }
+
+  .leftcol {
+    width: 520px;
+  }
+
+  .rightcol {
+    width: 300px;
+  }
+
+  header {
+    padding: 10px;
+    background-color: #EA2E49;
+  }
+
+  section {
+    margin-bottom: 20px;
+  }
+
+  article {
+    float: left;
+    background-color: #e5e5e5;
+    padding: 20px;
+  }
+
+  .leftcol article {
+    width: 470px;
+  }
+
+  .rightcol article {
+    width: 250px;
+  }
+}
+
+article p {
+  margin: 0;
+}
+
+.fade-arrow {
+  width: 0;
+  height: 0;
+  border: 5px solid #BC042C;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  float: left;
+}
+
+div.clear {
+  clear: both;
+}
+
+.date {
+  float: right;
+  font-style: italic;
+}
+
