@@ -6,36 +6,6 @@ p {
   line-height: 20px;
 }
 
-#content article {
-  &.experience {
-    ul {
-      margin: 5px 0 20px 0;
-      padding: 0;
-    }
-
-    li {
-      line-height: 20px;
-      list-style: none;
-      border-top: 1px solid #aaa;
-      padding: 4px 4px 4px 25px; }
-    }
-
-  &.skills {
-    ul {
-      margin: 10px 0 20px 0;
-      padding: 0;
-    }
-
-    li {
-      display: inline-block;
-      margin: 2px 0;
-      list-style: none;
-      padding: 3px;
-      background-color: #c9c9c9; 
-    }
-  }
-}
-
 #wrapper {
   width: 900px;
   margin: 0 auto;
@@ -50,23 +20,7 @@ p {
       color: #EA2E49;
     }
   }
-
-  .leftcol, .rightcol {
-    float: left;
-    padding: 20px;
-    height: 80px;
-  }
-
-  .leftcol {
-    width: 590px;
-  }
-
-  .rightcol {
-    width: 160px;
-    border-left: 1px solid #bbb;
-  }
 }
-
 
 #content {
   .leftcol, .rightcol {
