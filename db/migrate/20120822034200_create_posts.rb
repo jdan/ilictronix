@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.integer :author
       t.string :title
-      t.string :type
+      t.string :post_type
       t.text :content
       t.integer :score, :default => 0
 

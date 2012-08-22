@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20120822034200) do
   create_table "posts", :force => true do |t|
     t.integer  "author"
     t.string   "title"
-    t.string   "type"
+    t.string   "post_type"
     t.text     "content"
     t.integer  "score",      :default => 0
     t.datetime "created_at",                :null => false
