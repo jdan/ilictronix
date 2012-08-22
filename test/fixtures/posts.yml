@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  author: 1
+  title: MyString
+  type: 
+  content: MyText
+  score: 1
+
+two:
+  author: 1
+  title: MyString
+  type: 
+  content: MyText
+  score: 1
