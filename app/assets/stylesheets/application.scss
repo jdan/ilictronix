@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  font-family: 'Merriweather', 'Alegreya', Palatino, Georgia, serif;
+
+  div {
+    background-color: red;
+  }
+}
