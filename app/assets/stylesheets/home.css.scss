@@ -17,7 +17,7 @@ p {
     margin: 5px 0;
     font-size: 30pt;
     .highlight {
-      color: #EA2E49;
+      color: #66b5ff;
     }
   }
 }
@@ -29,16 +29,17 @@ p {
   }
 
   .leftcol {
-    width: 520px;
+    width: 600px;
   }
 
   .rightcol {
-    width: 300px;
+    width: 220px;
   }
 
   header {
     padding: 10px;
-    background-color: #EA2E49;
+    background-color: #66b5ff;
+    color: #222;
   }
 
   section {
@@ -47,16 +48,16 @@ p {
 
   article {
     float: left;
-    background-color: #e5e5e5;
+    background-color: #333;
     padding: 20px;
   }
 
   .leftcol article {
-    width: 470px;
+    width: 550px;
   }
 
   .rightcol article {
-    width: 250px;
+    width: 170px;
   }
 }
 
@@ -67,7 +68,7 @@ article p {
 .fade-arrow {
   width: 0;
   height: 0;
-  border: 5px solid #BC042C;
+  border: 5px solid #4486dd;
   border-left-color: transparent;
   border-bottom-color: transparent;
   float: left;

@@ -8,7 +8,8 @@
 </head>
 <body class="<%= params[:controller] %>">
   <div id="wrapper">
-    <div id="header">
+
+    <div id="top">
       <div class="user_nav">
         <% if current_user %>
           Logged in as <%= current_user.username %>.
@@ -25,6 +26,10 @@
 
     <div id="content">
       <%= yield %>
+    </div>
+
+    <div id="footer">
+      &copy; Jordan Scales 2012
     </div>
   </div>
   <%= javascript_include_tag "application" %>
