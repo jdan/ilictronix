@@ -2,6 +2,6 @@
   <header><%= @post.title %></header>
   <div class="fade-arrow"></div>
   <article>
-    <%= @post.content %>
+    <%= markdown @post.content %>
   </article>
 </section>

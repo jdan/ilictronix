@@ -16,4 +16,29 @@ body {
   font-family: 'Merriweather', 'Alegreya', Palatino, Georgia, serif;
   background-color: #222;
   color: #eee;
+  padding: 0;
+  margin: 0;
 }
+
+#top_wrapper {
+  border-bottom: 1px solid #eee;
+
+  #top {
+    width: 900px;
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+
+  #brand {
+    margin-top: 40px;
+
+    h1 {
+      font-size: 60px;
+      line-height: 60px;
+      padding: 0;
+      margin: 0;
+      font-weight: 100;
+    }
+  }
+}
+

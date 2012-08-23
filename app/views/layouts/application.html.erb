@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= params[:controller] %>">
-  <div id="wrapper">
 
+  <div id="top_wrapper">
     <div id="top">
       <div class="user_nav">
         <% if current_user %>
@@ -22,8 +22,14 @@
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
-    </div>
 
+      <div id="brand">
+        <h1><%= @title || 'ilictronix.' %></h1>
+      </div>
+    </div>
+  </div>
+
+  <div id="wrapper">
     <div id="content">
       <div class="leftcol">
         <%= yield %>

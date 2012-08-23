@@ -10,6 +10,9 @@ gem 'mysql2'
 # sorcery for auth
 gem 'sorcery'
 
+# redcarpet for markdown formatting
+gem 'redcarpet', '1.17.2'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
