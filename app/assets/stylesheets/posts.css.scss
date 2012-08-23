@@ -6,6 +6,15 @@ p {
   line-height: 20px;
 }
 
+a {
+  color: #66b5ff;
+  text-decoration: none;
+  border-bottom: 1px dotted #777;
+  &:hover {
+    color: #aac6ff;
+  }
+}
+
 #wrapper {
   width: 900px;
   margin: 0 auto;
@@ -40,6 +49,15 @@ p {
     padding: 10px;
     background-color: #66b5ff;
     color: #222;
+
+    a {
+      text-decoration: none;
+      color: #222;
+      border: none;
+      &:hover {
+        border-bottom: 1px dotted #777;
+      }
+    }
   }
 
   section {
