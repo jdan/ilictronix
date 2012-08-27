@@ -15,11 +15,6 @@ a {
   }
 }
 
-#wrapper {
-  width: 900px;
-  margin: 0 auto;
-}
-
 #top {
   padding: 20px;
   h1 {
@@ -38,7 +33,7 @@ a {
   }
 
   .leftcol {
-    width: 600px;
+    width: 680px;
   }
 
   .rightcol {
@@ -62,7 +57,7 @@ a {
   }
 
   section {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   article {
@@ -82,6 +77,26 @@ a {
 
 article p {
   margin: 0;
+}
+
+.date {
+  float: left;
+  width: 60px;
+  text-align: center;
+  margin-right: 20px;
+
+  .month {
+    color: #66b5ff;
+  }
+
+  .day {
+    font-size: 40px;
+    line-height: 42px;
+  }
+}
+
+.else {
+  float: left;
 }
 
 .fade-arrow {

@@ -1,10 +1,20 @@
 <% @posts.each do |post| %>
   <section id="<%= dom_id post %>">
-    <header><%= link_to post.title, post %></header>
-    <div class="fade-arrow"></div>
-    <article>
-      <%= markdown post.content %>
-    </article>
+    <div class="date">
+      <div class="month">
+        <%= post.month %>
+      </div>
+      <div class="day">
+        <%= post.day %>
+      </div>
+    </div>
+    <div class="else">
+      <header><%= link_to post.title, post %></header>
+      <div class="fade-arrow"></div>
+      <article>
+        <%= markdown post.content %>
+      </article>
+    </div>
     <div class="clear"></div>
   </section>
 <% end %>

@@ -1,7 +1,17 @@
 <section id="<%= dom_id @post %>">
-  <header><%= @post.title %></header>
-  <div class="fade-arrow"></div>
-  <article>
-    <%= markdown @post.content %>
-  </article>
+  <div class="date">
+    <div class="month">
+      <%= @post.month %>
+    </div>
+    <div class="day">
+      <%= @post.day %>
+    </div>
+  </div>
+  <div class="else">
+    <header><%= @post.title %></header>
+    <div class="fade-arrow"></div>
+    <article>
+      <%= markdown @post.content %>
+    </article>
+  </div>
 </section>
