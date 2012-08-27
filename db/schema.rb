@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20120827184748) do
     t.string "title"
   end
 
-  create_table "user_role", :id => false, :force => true do |t|
+  create_table "roles_users", :id => false, :force => true do |t|
     t.integer "user_id"
     t.integer "role_id"
   end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  has_many :roles, :through => :user_role
+  has_and_belongs_to_many :roles
 
   attr_accessible :username, :email, :password, :password_confirmation
 
