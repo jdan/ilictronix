@@ -24,9 +24,7 @@ ActiveRecord::Schema.define(:version => 20120827184047) do
   end
 
   create_table "roles", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "title"
   end
 
   create_table "user_role", :id => false, :force => true do |t|
