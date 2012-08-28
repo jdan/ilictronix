@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+
+  before_filter :require_login, :except => [:index, :show]
+  before_filter :can_write?, :only => [:new, :create, :edit, :update]
+
   def index
     @posts = Post.all
   end
@@ -41,4 +45,9 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
+
+  def can_write?
+    current_user.has_role?(:writer) || current_user.has_role?(:god)
+  end
+
 end
