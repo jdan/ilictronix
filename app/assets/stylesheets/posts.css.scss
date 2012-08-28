@@ -63,7 +63,7 @@ a {
   article {
     float: left;
     background-color: #333;
-    padding: 20px;
+    padding: 5px 20px;
   }
 
   .leftcol article {
@@ -73,10 +73,6 @@ a {
   .rightcol article {
     width: 180px;
   }
-}
-
-article p {
-  margin: 0;
 }
 
 .date {
