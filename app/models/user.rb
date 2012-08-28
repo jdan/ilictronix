@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :roles
   has_many :posts
+  has_many :comments
 
   attr_accessible :username, :email, :password, :password_confirmation
 
