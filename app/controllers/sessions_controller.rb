@@ -10,4 +10,9 @@ class SessionsController < ApplicationController
       flash.now.alert = 'Invalid username/password combination'
     end
   end
+
+  def destroy
+    logout
+    redirect_to root_url, :notice => 'Logged out!'
+  end
 end
