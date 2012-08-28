@@ -9,7 +9,13 @@
       </div>
     </div>
     <div class="else">
-      <header><%= link_to post.title, post %></header>
+      <header>
+        <span><%= link_to post.title, post %></span>
+        <span class="right">
+          <i class="icon-comment"></i>
+          <span class="comments-count"><%= post.comments.count %></span>
+        </span>
+      </header>
       <div class="fade-arrow"></div>
       <article>
         <%= markdown post.content %>
