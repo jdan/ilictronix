@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_uniqueness_of :email
 
+  def has_role?(r)
+    self.roles.where(:title => r.to_s).any?
+  end
+
 end
