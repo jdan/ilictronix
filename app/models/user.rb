@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   def has_role?(r)
-    # if god then return true (I don't like this...)
-    return true if self.roles.where(:title => 'god').any?
     self.roles.where(:title => r.to_s).any?
   end
 

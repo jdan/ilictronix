@@ -1,0 +1,26 @@
+<section>
+  <h1>All Roles</h1>
+  <ul id="roles">
+    <% @roles.each do |role| %>
+      <li class="role" id="<%= dom_id role %>">
+        <p>
+          <%= role.title %>
+          <span class="right">
+            <%= link_to 'Delete', role, :remote => true, :method => 'delete', :confirm => 'Are you sure?' %>
+          </span>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3>New Role</h3>
+  <%= form_tag roles_path, :remote => 'true' do %>
+    <div class="field">
+      <%= label_tag :title %>
+      <%= text_field_tag :title %>
+    </div>
+    <div class="actions">
+      <%= submit_tag %>
+    </div>
+  <% end %>
+</section>
