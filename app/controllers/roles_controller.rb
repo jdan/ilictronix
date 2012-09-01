@@ -1,11 +1,7 @@
 class RolesController < ApplicationController
 
   before_filter :require_login
-  before_filter do
-    unless current_user.has_role? :god
-      redirect_to root_url, :alert => 'You do not have access to this page'
-    end
-  end
+  before_filter :admin_only
 
   def index
     @roles = Role.all

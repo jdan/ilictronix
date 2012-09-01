@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   before_filter :require_login, :except => [:index, :show]
-  before_filter :can_write?, :only => [:new, :create, :edit, :update]
+  before_filter :writers_only, :only => [:new, :create, :edit, :update]
 
   def index
     @posts = Post.all
