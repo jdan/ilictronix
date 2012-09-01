@@ -6,7 +6,7 @@
 <% if current_user.has_role?(:god) %>
   <hr/>
   <h3>Roles</h3>
-  <ul>
+  <ul id="roles">
     <% @user.roles.each do |role| %>
       <li><%= role.title %></li>
     <% end %>
@@ -14,7 +14,7 @@
 
   <%= form_tag attach_path(@user), :remote => true do %>
     <div class="field">
-      <%= select_tag :roles, options_for_select(Role.all.collect { |r| [r.title, r.id] }), :multiple => true, :class => 'chosen' %>
+      <%= select_tag :roles_select, options_for_select(@roles, @selected_roles), :multiple => true, :class => 'chosen' %>
     </div>
     <div class="actions">
       <%= submit_tag %>

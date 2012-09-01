@@ -1,1 +1,4 @@
-alert('Saved!');
+$('#roles').empty();
+$('#roles_select option:selected').each(function(i, v) {
+  $('#roles').append('<li>' + $(v).text() + '</li>');
+});
