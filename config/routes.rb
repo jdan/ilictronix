@@ -12,6 +12,8 @@ Ilictronix::Application.routes.draw do
   resources :posts
   resources :roles
 
+  post '/users/:id/attach' => 'users#attach', :as => 'attach'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

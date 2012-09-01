@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
 
   before_filter :require_login
-  before_filter :admin_only
+  before_filter :god_only
 
   def index
     @roles = Role.all
