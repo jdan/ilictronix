@@ -3,7 +3,7 @@
 <p>Email: <%= @user.email %></p>
 <p>Member since: <%= @user.created_at %></p>
 
-<% if current_user.has_role?(:god) %>
+<% if current_user && current_user.has_role?(:god) %>
   <hr/>
   <h3>Roles</h3>
   <ul id="roles">
