@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+
+    render 'new', :layout => 'no_sidebar'
   end
 
   def create
@@ -29,6 +31,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+
+    render 'edit', :layout => 'no_sidebar'
   end
 
   def update

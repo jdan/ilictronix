@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ilictronix</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "bootstrap.min", :media => "all" %>
+  <%= stylesheet_link_tag "chosen", :media => "all" %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Merriweather:400,700", :media => "all" %>
+  <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= params[:controller] %>">
+
+  <div id="top_wrapper">
+    <div id="top">
+      <div class="user_nav right">
+        <% if current_user %>
+          Logged in as <%= current_user.username %>.
+          <%= link_to "Log out", logout_path %>
+        <% else %>
+          <%= link_to "Sign up", signup_path %> or
+          <%= link_to "Log in", login_path  %>.
+        <% end %>
+      </div>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+
+      <div id="brand">
+        <h1><%= @title || 'ilictronix.' %></h1>
+      </div>
+    </div>
+  </div>
+
+  <div id="wrapper">
+    <div id="content">
+      <div class="leftcol">
+        <%= yield %>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="footer">
+      <p>This is my footer.</p>
+    </div>
+  </div>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "chosen.jquery.min" %>
+  <!-- html5 shim -->
+  <!--[if lt IE 9]>
+  <script src="html5shiv.js"></script>
+  <![endif]-->
+</body>
+</html>

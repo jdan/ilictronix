@@ -5,6 +5,8 @@ class RolesController < ApplicationController
 
   def index
     @roles = Role.all
+
+    render 'index', :layout => 'no_sidebar'
   end
 
   def create
