@@ -9,7 +9,15 @@ class UsersController < ApplicationController
   def attach
     @user = User.find(params[:id])
     if params[:roles]
+      if @user.has_role? :god
+        should_have_god = true
+      end
+
       @user.roles = params[:roles].collect { |r| Role.find(r.to_i) }
+
+      if should_have_god && !@user.has_role?(:god)
+        @user.roles << Role.where(:title => 'god')
+      end
     else
       @user.roles = []
     end
@@ -26,7 +34,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @roles = Role.all.collect{ |r| [r.title, r.id] }
-    @selected_roles = Role.all.find_all{ |r| @user.has_role?(r.title.to_sym) }.collect{ |sr| sr.id }
   end
 
   def new
