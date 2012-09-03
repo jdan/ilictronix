@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   before_filter :require_login
+  before_filter :admin_only, :only => :destroy
 
   def create
     @comment = Comment.new(params[:comment])
@@ -12,4 +13,17 @@ class CommentsController < ApplicationController
       redirect_to @comment.post
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+
+    respond_to do |format|
+      if @comment.destroy
+        format.js
+      else
+        format.js { render 'error' }
+      end
+    end
+  end
+
 end

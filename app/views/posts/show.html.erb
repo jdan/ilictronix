@@ -24,24 +24,11 @@
     <div class="comments">
       <h2><%= @post.comments.count %> comments</h2>
       <% @post.comments.each do |comment| %>
-        <%= div_for comment do %>
-          <%= comment.user.username %>: <%= comment.body %>
-        <% end %>
+        <%= render comment %>
       <% end %>
 
       <% if current_user %>
-        <div id="comment_form">
-          <span>Write something...</span>
-          <%= form_tag comments_path do %>
-            <div class="field">
-              <%= text_area_tag 'comment[body]' %>
-            </div>
-            <div class="actions">
-              <%= submit_tag %>
-            </div>
-            <%= hidden_field_tag 'comment[post_id]', @post.id %>
-          <% end %>
-        </div>
+        <%= render 'comments/form' %>
       <% end %>
     </div>
   </div>
