@@ -10,6 +10,7 @@ Ilictronix::Application.routes.draw do
   resources :sessions
   resources :home
   resources :posts
+  resources :comments
   resources :roles
 
   post '/users/:id/attach' => 'users#attach', :as => 'attach'
