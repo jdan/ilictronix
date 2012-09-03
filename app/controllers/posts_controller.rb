@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
 
-    render 'new', :layout => 'no_sidebar'
+    render :new, :layout => 'no_sidebar'
   end
 
   def create
@@ -25,14 +25,14 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, :notice => 'Post published successfully!'
     else
-      render :new
+      render :new, :layout => 'no_sidebar'
     end
   end
 
   def edit
     @post = Post.find(params[:id])
 
-    render 'edit', :layout => 'no_sidebar'
+    render :edit, :layout => 'no_sidebar'
   end
 
   def update
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     if @post.update_attributes(params[:post])
       redirect_to @post, :notice => 'Post updated successfully'
     else
-      render :edit
+      render :edit, :layout => 'no_sidebar'
     end
   end
 
