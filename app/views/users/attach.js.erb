@@ -1,4 +1,4 @@
 $('#roles').empty();
-$('#roles_select option:selected').each(function(i, v) {
-  $('#roles').append('<li>' + $(v).text() + '</li>');
+$('input[type="checkbox"]:checked').each(function(i, v) {
+  $('#roles').append('<li>' + $(v).next().text().toLowerCase() + '</li>');
 });

@@ -13,9 +13,12 @@
   </ul>
 
   <%= form_tag attach_path(@user), :remote => true do %>
-    <div class="field">
-      <%= select_tag :roles_select, options_for_select(@roles, @selected_roles), :multiple => true, :class => 'chosen' %>
-    </div>
+    <% @roles.each do |role| %>
+      <div class="field">
+        <%= check_box_tag 'roles[]', role[1], @user.has_role?(role[0]) %>
+        <%= label_tag role[0] %>
+      </div>
+    <% end %>
     <div class="actions">
       <%= submit_tag %>
     </div>
