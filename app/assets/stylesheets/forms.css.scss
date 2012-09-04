@@ -11,6 +11,11 @@ form {
       width: 200px;
     }
 
+    textarea {
+      width: 400px;
+      height: 100px;
+    } 
+
     margin: 10px 0;
   }
 
@@ -19,6 +24,11 @@ form {
       width: 100px;
       height: 50px;
       margin-left: 20px;
+
+      &.comment_submit {
+        margin-left: 0;
+        width: 60px;
+      }
     }
   }
 }
