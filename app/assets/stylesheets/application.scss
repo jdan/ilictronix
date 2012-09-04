@@ -54,6 +54,20 @@ body {
   text-align: center;
 }
 
+#flash_notice {
+  background-color: #263;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+#flash_alert {
+  background-color: #823;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
 .fade-arrow {
   width: 0;
   height: 0;

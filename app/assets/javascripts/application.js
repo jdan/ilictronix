@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require_tree .
 
+hide_notices = function() {
+  if ($('#flash_notice')) $('#flash_notice').slideUp(300);
+  if ($('#flash_alert'))  $('#flash_alert').slideUp(300);
+};
+
+$(function() {
+  setTimeout(hide_notices, 3000);
+});
