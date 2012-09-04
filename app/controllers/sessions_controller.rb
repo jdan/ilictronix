@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    render :new, :layout => 'no_sidebar'
   end
 
   def create
