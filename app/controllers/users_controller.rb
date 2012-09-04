@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :god_only, :only => :attach
   before_filter :admin_only, :only => :index
+  before_filter :logged_in_already?, :only => :new
 
   def index
     @users = User.all
@@ -55,5 +56,12 @@ class UsersController < ApplicationController
   def destroy
     logout
     redirect_to root_url, :notice => 'Logged out.'
+  end
+
+  def logged_in_already?
+    return if current_user && current_user.has_role?(:god)
+    if current_user
+      redirect_to root_url, :alert => 'You are already logged in'
+    end
   end
 end
