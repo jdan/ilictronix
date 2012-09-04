@@ -22,7 +22,7 @@
     </article>
     <div class="clear"></div>
     <div class="comments">
-      <h2><%= @post.comments.count %> comments</h2>
+      <h2><span id="comments_count"><%= pluralize @post.comments.count, 'comment' %></span></h2>
       <% @post.comments.each do |comment| %>
         <%= render comment %>
       <% end %>

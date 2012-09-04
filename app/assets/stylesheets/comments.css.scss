@@ -11,8 +11,28 @@
     text-align: center;
   }
 
+  .comment {
+    padding: 10px;
+    background-color: #333;
+    margin: 10px 0;
+
+    .comment_body {
+      margin: 10px 0;
+    }
+  }
+
   #comment_form {
     padding: 10px;
     background-color: #333;
   }
+
+  a.delete {
+    color: #DD4B3C;
+    border-bottom-color: #555;
+
+    &:hover {
+      color: #ED7B5C;
+    }
+  }
+
 }

@@ -1,0 +1,10 @@
+$('#<%= dom_id @comment %>').fadeOut(300, function() {
+  $(this).remove();
+  var $el = $('#comments_count');
+  var count = parseInt($el.text().split()[0]);
+  if (count == 2) {
+    $el.text('1 comment');
+  } else {
+    $el.text(parseInt(count) - 1 + ' comments');
+  }
+});

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @comment.post, :notice => 'Comment saved!'
     else
-      redirect_to @comment.post
+      redirect_to @comment.post, :alert => 'Comment too short (minimum 10 chars)'
     end
   end
 
