@@ -8,7 +8,6 @@ TBA
 ### What's left in v1
 
 * Messages
-* Sidebar
 
 ### Features slated for v2
 
@@ -16,4 +15,5 @@ TBA
 * User-user messaging
 * Artist profiles
 * Widgets
+* Responsive Layout
 
