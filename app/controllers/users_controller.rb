@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :god_only, :only => [:index, :attach]
+  before_filter :god_only, :only => :attach
+  before_filter :admin_only, :only => :index
 
   def index
     @users = User.all

@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    render :edit, :layout => 'no_sidebar'
   end
 
   def update

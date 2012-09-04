@@ -41,7 +41,17 @@
         <% if current_user && (current_user.has_role? :writer) %>
           <section>
             <header>Internal</header>
-            <article><p>This is only visible to writers</p></article>
+            <article>
+              <ul>
+                <li><%= link_to 'New Post', new_post_path %></li>
+                <% if current_user.has_role? :admin %>
+                  <li><%= link_to 'User Index', users_path %></li>
+                <% end %>
+                <% if current_user.has_role? :god %>
+                  <li><%= link_to 'Roles', roles_path %></li>
+                <% end %>
+              </ul>
+            </article>
             <div class="clear"></div>
           </section>
         <% end %>
