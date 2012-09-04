@@ -6,6 +6,13 @@
     <div class="day">
       <%= @post.day %>
     </div>
+
+    <% if current_user && (current_user.has_role?(:admin) || current_user == @post.user) %>
+      <div id="controls">
+        <%= link_to 'Edit', edit_post_path(@post) %><br />
+        <%= link_to 'Delete', @post, :method => :delete, :confirm => 'Are you sure?' %>
+      </div>
+    <% end %>
   </div>
 
   <div class="else">

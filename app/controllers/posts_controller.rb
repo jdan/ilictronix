@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
   before_filter :require_login, :except => [:index, :show]
-  before_filter :writers_only, :only => [:new, :create, :edit, :update]
+  before_filter :writers_only, :only => [:new, :create]
+  before_filter :admin_or_original?, :only => [:edit, :update]
 
   def index
     @posts = Post.all
@@ -30,13 +31,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
-
+    # we get @post in admin_or_original?
     render :edit, :layout => 'no_sidebar'
   end
 
   def update
-    @post = Post.find(params[:id])
+    # we get @post in admin_or_original?
     if @post.update_attributes(params[:post])
       redirect_to @post, :notice => 'Post updated successfully'
     else
@@ -47,11 +47,16 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, :notice => 'Post deleted successfully'
   end
 
-  def can_write?
-    current_user.has_role?(:writer) || current_user.has_role?(:god)
+  def admin_or_original?
+    @post = Post.find(params[:id])
+    return if current_user.has_role? :admin
+
+    if current_user != @post.user
+      redirect_to @post, :alert => 'You do not have access to this page'
+    end
   end
 
 end

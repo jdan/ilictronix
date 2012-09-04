@@ -15,12 +15,12 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find(params[:id])
+    # we get @comment in admin_or_original?
     render :edit, :layout => 'no_sidebar'
   end
 
   def update
-    @comment = Comment.find(params[:id])
+    # we get @comment in admin_or_original?
 
     if @comment.update_attributes(params[:comment])
       redirect_to @comment.post, :notice => 'Comment successfully updated.'
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    # we get @comment in admin_or_original?
 
     respond_to do |format|
       if @comment.destroy
@@ -42,9 +42,9 @@ class CommentsController < ApplicationController
   end
 
   def admin_or_original?
+    @comment = Comment.find(params[:id])
     return if current_user.has_role? :admin
 
-    @comment = Comment.find(params[:id])
     if current_user != @comment.user
       redirect_to @comment.post, :alert => 'You do not have access to this page.'
     end
