@@ -36,6 +36,10 @@
 
       <% if current_user %>
         <%= render 'comments/form' %>
+      <% else %>
+        <div class="comment center">
+          <%= link_to 'Sign up', signup_path %> or <%= link_to 'log in', login_path %> to drop a comment.
+        </div>
       <% end %>
     </div>
   </div>
