@@ -1,0 +1,11 @@
+<div id="comment_form">
+  <span>Write something...</span>
+  <%= form_for @comment do |f| %>
+    <div class="field">
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

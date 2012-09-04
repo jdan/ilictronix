@@ -5,7 +5,9 @@
   </span>
   <% if current_user && (current_user.has_role?(:admin) || current_user == comment.user) %>
     <span class="right controls">
-      <%= link_to 'Delete', comment, :method => :delete, :remote => true, :confirm => 'Are you sure?', :class => 'delete' %>
+      <%= link_to 'Edit', edit_comment_path(comment), :class => 'control' %>
+      &nbsp;
+      <%= link_to 'Delete', comment, :method => :delete, :remote => true, :confirm => 'Are you sure?', :class => 'control' %>
     </span>
   <% end %>
 
