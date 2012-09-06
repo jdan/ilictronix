@@ -64,6 +64,10 @@ a {
     float: left;
     background-color: #333;
     padding: 5px 20px;
+
+    img {
+      width: 100%;
+    }
   }
 
   .leftcol article {
@@ -109,4 +113,3 @@ a {
 .else {
   float: left;
 }
-
