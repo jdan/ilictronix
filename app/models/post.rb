@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  before_create :create_slug
+
   belongs_to :user
   has_many :comments
 
@@ -17,5 +19,13 @@ class Post < ActiveRecord::Base
 
   def day
     self.created_at.strftime('%d')
+  end
+
+  def to_param
+    slug
+  end
+
+  def create_slug
+    self.slug = self.title.parameterize
   end
 end

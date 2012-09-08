@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug!(params[:id])
     @post.destroy
     redirect_to posts_path, :notice => 'Post deleted successfully'
   end
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   # POST /posts/:id/publicize
   # makes a post public, returns JS
   def publicize
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug!(params[:id])
     @post.public = true
 
     respond_to do |format|
@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   end
 
   def admin_or_original?
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug!(params[:id])
     return if current_user.has_role? :admin
 
     if current_user != @post.user
@@ -76,7 +76,7 @@ class PostsController < ApplicationController
   end
 
   def admin_or_original_if_private
-    @post = Post.find(params[:id])
+    @post = Post.find_by_slug!(params[:id])
     return if current_user && current_user.has_role?(:admin)
 
     if !@post.public && !(current_user && current_user == @post.user)

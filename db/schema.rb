@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120908013732) do
+ActiveRecord::Schema.define(:version => 20120908191944) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120908013732) do
     t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
     t.boolean  "public",     :default => false
+    t.string   "slug"
   end
 
   create_table "roles", :force => true do |t|

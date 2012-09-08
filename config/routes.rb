@@ -5,10 +5,11 @@ Ilictronix::Application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => 'logout'
 
   post '/posts/:id/publicize' => 'posts#publicize', :as => 'publicize_post'
+  get '/:id' => 'posts#show', :as => 'post'
 
   resources :users
   resources :sessions
-  resources :posts
+  resources :posts, :except => [:show]
   resources :comments
   resources :roles
 
