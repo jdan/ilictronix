@@ -14,7 +14,10 @@
     <%= f.text_area :content %>
   </div>
 
+  <%= f.hidden_field :public, :value => false %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Preview', :id => 'post_preview' %>
+    <%= f.submit 'Post', :id => 'post_submit' %>
   </div>
 <% end %>

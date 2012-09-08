@@ -1,10 +1,10 @@
 Ilictronix::Application.routes.draw do
 
-  get "roles/index"
-
   get 'signup' => 'users#new', :as => 'signup'
   get 'login'  => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
+
+  post '/posts/:id/publicize' => 'posts#publicize', :as => 'publicize_post'
 
   resources :users
   resources :sessions

@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
-  attr_accessible :content, :title, :post_type
+  attr_accessible :content, :title, :post_type, :public
 
   validates_presence_of :content, :title, :post_type
   validates_length_of :content, :minimum => 10, :maximum => 2000

@@ -58,6 +58,12 @@ a {
 
   section {
     margin-bottom: 30px;
+
+    .important {
+      margin: 20px 0 0 10px;
+      border: 1px solid #eee;
+      text-align: center;
+    }
   }
 
   article {

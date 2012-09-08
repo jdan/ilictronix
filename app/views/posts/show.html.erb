@@ -28,6 +28,17 @@
       <%= markdown @post.content %>
     </article>
     <div class="clear"></div>
+
+    <% if !@post.public %>
+      <div class="important">
+        <p>
+          <b>NOTE:</b> This post is private, click
+          <%= link_to 'here', publicize_post_path(@post), :remote => true, :method => 'post' %>
+          to make it public.
+        </p>
+      </div>
+    <% end %>
+
     <div class="comments">
       <h2><span id="comments_count"><%= pluralize @post.comments.count, 'comment' %></span></h2>
       <% @post.comments.each do |comment| %>
