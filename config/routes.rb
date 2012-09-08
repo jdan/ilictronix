@@ -8,12 +8,14 @@ Ilictronix::Application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :posts, :except => [:show, :update]
+  resources :posts, :except => [:show, :update, :destroy]
   resources :comments
   resources :roles
 
   get '/:id' => 'posts#show', :as => 'post'
   put '/:id' => 'posts#update'
+  delete '/:id' => 'posts#destroy'
+
   post '/users/:id/attach' => 'users#attach', :as => 'attach'
 
   # The priority is based upon order of creation:
