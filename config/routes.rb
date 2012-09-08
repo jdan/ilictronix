@@ -5,14 +5,15 @@ Ilictronix::Application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => 'logout'
 
   post '/posts/:id/publicize' => 'posts#publicize', :as => 'publicize_post'
-  get '/:id' => 'posts#show', :as => 'post'
 
   resources :users
   resources :sessions
-  resources :posts, :except => [:show]
+  resources :posts, :except => [:show, :update]
   resources :comments
   resources :roles
 
+  get '/:id' => 'posts#show', :as => 'post'
+  put '/:id' => 'posts#update'
   post '/users/:id/attach' => 'users#attach', :as => 'attach'
 
   # The priority is based upon order of creation:
