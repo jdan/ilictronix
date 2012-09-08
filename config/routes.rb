@@ -8,7 +8,6 @@ Ilictronix::Application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :home
   resources :posts
   resources :comments
   resources :roles
