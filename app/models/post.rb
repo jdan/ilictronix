@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
   end
 
   def to_param
-    slug
+    self.slug
   end
 
   def create_slug
