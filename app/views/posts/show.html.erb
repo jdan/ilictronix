@@ -39,7 +39,7 @@
       </div>
     <% end %>
 
-    <div class="comments">
+    <div id="comments" class="comments">
       <h2><span id="comments_count"><%= pluralize @post.comments.count, 'comment' %></span></h2>
       <% @post.comments.each do |comment| %>
         <%= render comment %>
