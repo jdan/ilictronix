@@ -1,4 +1,28 @@
+form.new_post, form.edit_post {
+  .field {
+    label {
+      vertical-align: top;
+    }
+
+    input[type="text"], input[type="password"], textarea {
+      width: 600px;
+      font-size: 20px;
+    }
+
+    textarea {
+      height: 400px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+  }
+
+  .actions {
+    margin-left: 100px;
+  }
+}
+
 form {
+
   .field {
     label {
       width: 100px;
@@ -6,7 +30,7 @@ form {
       margin-right: 10px;
       display: inline-block;
     }
-    
+
     input[type="text"], input[type="password"] {
       width: 200px;
     }
@@ -14,7 +38,7 @@ form {
     textarea {
       width: 400px;
       height: 100px;
-    } 
+    }
 
     margin: 10px 0;
   }

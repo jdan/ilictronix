@@ -34,6 +34,10 @@ a {
 
   .leftcol {
     width: 680px;
+
+    &.alone {
+      width: 980px;
+    }
   }
 
   .rightcol {
