@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user
       redirect_back_or_to root_url, :notice => "Logged in. Welcome, #{params[:username]}!"
     else
-      flash.now.alert = 'Invalid username/password combination'
+      redirect_to root_url, :alert => 'Invalid username/password combination'
     end
   end
 
