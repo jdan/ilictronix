@@ -45,7 +45,7 @@
   <div id="comments" class="comments">
     <h2><span id="comments_count"><%= pluralize @post.comments.count, 'comment' %></span></h2>
     <% @post.comments.each do |comment| %>
-      <div class="comment">
+      <%= div_for comment do %>
         <div class="date">
           <%= image_tag avatar_url(comment.user) %>
         </div>
@@ -53,7 +53,7 @@
           <%= render comment %>
         </div>
         <div class="clear"></div>
-      </div>
+      <% end %>
     <% end %>
 
     <div class="date">&nbsp;</div>
