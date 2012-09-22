@@ -16,3 +16,6 @@
 
 # SASS cache
 .sass-cache
+
+# database.yml
+/config/database.yml
