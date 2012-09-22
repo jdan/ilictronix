@@ -12,6 +12,8 @@ Ilictronix::Application.routes.draw do
   resources :comments
   resources :roles
 
+  get '/posts/page/:page' => 'posts#index', :as => 'posts_page'
+
   get '/:id' => 'posts#show', :as => 'post'
   put '/:id' => 'posts#update'
   delete '/:id' => 'posts#destroy'

@@ -1,28 +1,38 @@
-<% @posts.each do |post| %>
-  <section id="<%= dom_id post %>" class="post">
-    <div class="date">
-      <div class="month">
-        <%= post.month %>
+<% if @posts.count > 0 %>
+  <% @posts.each do |post| %>
+    <section id="<%= dom_id post %>" class="post">
+      <div class="date">
+        <div class="month">
+          <%= post.month %>
+        </div>
+        <div class="day">
+          <%= post.day %>
+        </div>
       </div>
-      <div class="day">
-        <%= post.day %>
+      <div class="else">
+        <header>
+          <span><%= link_to post.title, post %></span>
+          <a href="<%= post_path(post) %>#comments">
+            <span class="right">
+              <i class="icon-comment"></i>
+              <span class="comments-count"><%= post.comments.count %></span>
+            </span>
+          </a>
+        </header>
+        <div class="fade-arrow"></div>
+        <article>
+          <%= markdown post.content %>
+        </article>
       </div>
-    </div>
-    <div class="else">
-      <header>
-        <span><%= link_to post.title, post %></span>
-        <a href="<%= post_path(post) %>#comments">
-          <span class="right">
-            <i class="icon-comment"></i>
-            <span class="comments-count"><%= post.comments.count %></span>
-          </span>
-        </a>
-      </header>
-      <div class="fade-arrow"></div>
-      <article>
-        <%= markdown post.content %>
-      </article>
-    </div>
-    <div class="clear"></div>
-  </section>
+      <div class="clear"></div>
+    </section>
+  <% end %>
+
+  <% unless @page == 1 %>
+    <%= link_to '< Prev', posts_page_path(@page - 1) %> | 
+  <% end %>
+
+  <%= link_to 'Next >', posts_page_path(@page + 1) %>
+<% else %>
+  <p>Dey ain't nothin' here!</p>
 <% end %>

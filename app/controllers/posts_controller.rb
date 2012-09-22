@@ -6,7 +6,11 @@ class PostsController < ApplicationController
   before_filter :admin_or_original_if_private, :only => [:show]
 
   def index
-    @posts = Post.where(:public => true)
+    # primitive pagination
+    @page = (params[:page] || 1).to_i
+    offset = 3 * (@page - 1)
+
+    @posts = Post.where(:public => true).all(:offset => offset, :limit => 3)
   end
 
   def show
