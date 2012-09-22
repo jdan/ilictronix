@@ -1,5 +1,7 @@
 <h1>Details for <%= @user.username %></h1>
 
+<%= image_tag avatar_url(@user) %>
+
 <p>Email: <%= @user.email %></p>
 <p>Member since: <%= @user.created_at %></p>
 
