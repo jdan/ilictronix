@@ -34,21 +34,34 @@
         <p>
           <b>NOTE:</b> This post is private, click
           <%= link_to 'here', publicize_post_path(@post), :remote => true, :method => 'post' %>
-          to make it public.
+          to make it public.`
         </p>
       </div>
     <% end %>
+  </div>
 
-    <div id="comments" class="comments">
-      <h2><span id="comments_count"><%= pluralize @post.comments.count, 'comment' %></span></h2>
-      <% @post.comments.each do |comment| %>
-        <%= render comment %>
-      <% end %>
+  <div class="clear"></div>
 
+  <div id="comments" class="comments">
+    <h2><span id="comments_count"><%= pluralize @post.comments.count, 'comment' %></span></h2>
+    <% @post.comments.each do |comment| %>
+      <div class="comment">
+        <div class="date">
+          <%= image_tag avatar_url(comment.user) %>
+        </div>
+        <div class="else">
+          <%= render comment %>
+        </div>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+
+    <div class="date">&nbsp;</div>
+    <div class="else">
       <% if current_user %>
         <%= render 'comments/form' %>
       <% else %>
-        <div class="comment center">
+        <div class="center">
           <%= link_to 'Sign up', signup_path %> or <%= link_to 'log in', login_path %> to drop a comment.
         </div>
       <% end %>

@@ -1,17 +1,15 @@
-<%= div_for comment do %>
-  <span class="comment_info">
-    <span class="blue"><%= comment.user.username %></span>
-    said on <%= comment.timestamp %> (<%= distance_of_time_in_words_to_now(comment.created_at) %> ago)
+<span class="comment_info">
+  <span class="blue"><%= comment.user.username %></span>
+  said on <%= comment.timestamp %> (<%= distance_of_time_in_words_to_now(comment.created_at) %> ago)
+</span>
+<% if current_user && (current_user.has_role?(:admin) || current_user == comment.user) %>
+  <span class="right controls">
+    <%= link_to 'Edit', edit_comment_path(comment), :class => 'control' %>
+    &nbsp;
+    <%= link_to 'Delete', comment, :method => :delete, :remote => true, :confirm => 'Are you sure?', :class => 'control' %>
   </span>
-  <% if current_user && (current_user.has_role?(:admin) || current_user == comment.user) %>
-    <span class="right controls">
-      <%= link_to 'Edit', edit_comment_path(comment), :class => 'control' %>
-      &nbsp;
-      <%= link_to 'Delete', comment, :method => :delete, :remote => true, :confirm => 'Are you sure?', :class => 'control' %>
-    </span>
-  <% end %>
-
-  <div class="comment_body">
-    <%= comment.body %>
-  </div>
 <% end %>
+
+<div class="comment_body">
+  <%= markdown comment.body %>
+</div>
