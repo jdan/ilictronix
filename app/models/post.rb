@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :content, :title, :post_type, :public
 
-  validates_presence_of :content, :title, :post_type
+  validates_presence_of :content, :title #, :post_type
   validates_length_of :content, :minimum => 10, :maximum => 2000
   validates_length_of :title, :maximum => 100
 
