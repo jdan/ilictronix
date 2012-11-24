@@ -4,6 +4,8 @@ module ApplicationHelper
   def markdown(text)
     text = text.gsub(/</,'&lt;')
                .gsub(/>/,'&gt;')
+               .to_soundcloud
+               .to_spotify
     Redcarpet.new(text).to_html.html_safe
   end
 
