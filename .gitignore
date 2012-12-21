@@ -20,5 +20,3 @@
 # database.yml
 /config/database.yml
 
-# secret token
-/config/initializers/secret_token.rb
