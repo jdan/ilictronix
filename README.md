@@ -3,6 +3,8 @@ ilictronix
 
 The new ilictronix.com
 
+http://ilictronix.heroku.com
+
 TBA
 
 ### What's left in v1
@@ -11,7 +13,6 @@ TBA
 
 ### Features slated for v2
 
-* Comment formatting (markdown)
 * User-user messaging
 * Artist profiles
 * Widgets
