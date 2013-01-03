@@ -3,6 +3,7 @@ Ilictronix::Application.routes.draw do
   get 'signup' => 'users#new', :as => 'signup'
   get 'login'  => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
+  get 'new' => 'posts#new', :as => 'new_post'
 
   post '/posts/:id/publicize' => 'posts#publicize', :as => 'publicize_post'
 
@@ -13,6 +14,9 @@ Ilictronix::Application.routes.draw do
   resources :roles
 
   get '/posts/page/:page' => 'posts#index', :as => 'posts_page'
+
+  get '/tagged/:tag' => 'posts#tagged', :as => 'tag'
+  get '/tagged/:tag/:page' => 'posts#tagged'
 
   get '/:id' => 'posts#show', :as => 'post'
   put '/:id' => 'posts#update'

@@ -31,7 +31,7 @@
         <div class="tags">
           Tagged: 
           <% post.tags.each do |t| %>
-            <a href="#">#<%= t.title %></a>
+            <%= link_to "\##{t.title}", tag_path(t.title) %>
           <% end %>
         </div>
       <% end %>

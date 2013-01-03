@@ -15,6 +15,15 @@ class PostsController < ApplicationController
     @posts = Post.where(:public => true).all(:offset => offset, :limit => 3)
   end
 
+  def tagged
+    # uses primitive pagination
+    @page = (params[:page] || 1).to_i
+    offset = 3 * (@page - 1)
+
+    @posts = Tag.find_by_title(params[:tag]).posts.where(:public => true).all(:offset => offset, :limit => 3)
+    render 'index'
+  end
+
   def show
     # we get @post in admin_or_original_if_private
     @title = @post.title

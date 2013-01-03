@@ -35,6 +35,7 @@ class Post < ActiveRecord::Base
   end
 
   def create_tags
+    return if self.tag_list.nil?
     self.tags = []
     self.tag_list.split.each do |t|
       self.tags << Tag.find_or_create_by_title(t)
