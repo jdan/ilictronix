@@ -1,47 +1,6 @@
-<section id="<%= dom_id @post %>" class="post">
-  <div class="date">
-    <div class="month">
-      <%= @post.month %>
-    </div>
-    <div class="day">
-      <%= @post.day %>
-    </div>
+<%= render @post %>
 
-    <% if current_user && (current_user.has_role?(:admin) || current_user == @post.user) %>
-      <div id="controls">
-        <%= link_to 'Edit', edit_post_path(@post) %><br />
-        <%= link_to 'Delete', @post, :method => :delete, :confirm => 'Are you sure?' %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="else">
-    <header>
-      <span><%= link_to @post.title, @post %></span>
-      <span class="right">
-        <i class="icon-comment"></i>
-        <span class="comments-count"><%= @post.comments.count %></span>
-      </span>
-    </header>
-    <div class="fade-arrow"></div>
-    <article>
-      <%= markdown @post.content %>
-    </article>
-    <div class="clear"></div>
-
-    <% if !@post.public %>
-      <div class="important">
-        <p>
-          <b>NOTE:</b> This post is private, click
-          <%= link_to 'here', publicize_post_path(@post), :remote => true, :method => 'post' %>
-          to make it public.
-        </p>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="clear"></div>
-
+<section>
   <div id="comments" class="comments">
     <h2><span id="comments_count"><%= pluralize @post.comments.count, 'comment' %></span></h2>
     <% @post.comments.each do |comment| %>
