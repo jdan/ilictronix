@@ -26,6 +26,15 @@
     <div class="fade-arrow"></div>
     <article>
       <%= markdown post.content %>
+
+      <% if post.tags.any? %>
+        <div class="tags">
+          Tagged: 
+          <% post.tags.each do |t| %>
+            <a href="#">#<%= t.title %></a>
+          <% end %>
+        </div>
+      <% end %>
     </article>
     <div class="clear"></div>
 

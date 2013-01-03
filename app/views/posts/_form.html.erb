@@ -16,6 +16,11 @@
 
   <%= f.hidden_field :public, :value => false %>
 
+  <div class="field">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list %>
+  </div>
+
   <div class="actions">
     <%= f.submit 'Preview', :id => 'post_preview' %>
     <%= f.submit 'Post', :id => 'post_submit' %>

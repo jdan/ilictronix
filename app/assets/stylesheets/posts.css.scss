@@ -74,6 +74,19 @@ a {
     img {
       width: 100%;
     }
+
+    .tags {
+      padding: 10px 0;
+      border-top: 1px solid #444;
+      font-size: 85%;
+      color: #999;
+
+      a {
+        margin-left: 3px;
+        border: none;
+      }
+
+    }
   }
 
   .leftcol article {

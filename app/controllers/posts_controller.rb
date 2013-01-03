@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   before_filter :admin_or_original?, :only => [:edit, :update, :publicize]
   before_filter :admin_or_original_if_private, :only => [:show]
 
+  before_filter :attach_tag_list, :only => [:edit]
+
   def index
     # primitive pagination
     @page = (params[:page] || 1).to_i
@@ -70,6 +72,7 @@ class PostsController < ApplicationController
     end
   end
 
+  private
   def admin_or_original?
     @post = Post.find_by_slug!(params[:id])
     return if current_user.has_role? :admin
@@ -86,6 +89,10 @@ class PostsController < ApplicationController
     if !@post.public && !(current_user && current_user == @post.user)
       redirect_to root_url, :alert => 'You do not have access to this page'
     end
+  end
+
+  def attach_tag_list
+    @post.tag_list = @post.tags.map{ |t| t.title }.join(' ')
   end
 
 end
