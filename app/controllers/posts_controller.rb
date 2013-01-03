@@ -20,7 +20,13 @@ class PostsController < ApplicationController
     @page = (params[:page] || 1).to_i
     offset = 3 * (@page - 1)
 
-    @posts = Tag.find_by_title(params[:tag]).posts.where(:public => true).all(:offset => offset, :limit => 3)
+    @tag = Tag.find_by_title(params[:tag])
+    if @tag.nil?
+      @posts = []
+    else
+      @posts = @tag.posts.where(:public => true).all(:offset => offset, :limit => 3)
+    end
+
     render 'index'
   end
 

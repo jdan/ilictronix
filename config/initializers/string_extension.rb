@@ -1,6 +1,8 @@
 require 'net/http'
 require 'json'
 
+# TODO: better naming convention
+
 class String
   # convert spotify URLs to embed code
   def to_spotify
@@ -17,5 +19,10 @@ class String
       JSON.parse(Net::HTTP.get(URI.parse(fmt)))['html']
     end
     self.gsub(/^http:\/\/soundcloud.com\/(.+)\/(.+)$/) { |m| fetch_code m }
+  end
+
+  # convert hashtags to links
+  def hash_links
+    self.gsub(/#([a-zA-Z]+)\s*/, "<a href=\"/tagged/\\1\">#\\1</a> ")
   end
 end
