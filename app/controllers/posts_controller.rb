@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :require_login, :except => [:index, :show]
+  before_filter :require_login, :except => [:index, :tagged, :show]
   before_filter :writers_only, :only => [:new, :create]
   before_filter :admin_or_original?, :only => [:edit, :update, :publicize]
   before_filter :admin_or_original_if_private, :only => [:show]
