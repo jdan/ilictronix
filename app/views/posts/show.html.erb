@@ -15,18 +15,6 @@
       <% end %>
     <% end %>
 
-    <% if current_user %>
-      <div class="date">
-        <%= image_tag avatar_url(current_user) %>
-      </div>
-      <div class="else">
-        <%= render 'comments/form' %>
-      </div>
-    <% else %>
-      <div class="date">&nbsp;</div>
-      <div id="comment_form" class="else center">
-        <%= link_to 'Sign up', signup_path %> or <%= link_to 'log in', login_path %> to drop a comment.
-      </div>
-    <% end %>
+    <%= render :partial => 'comments/form' %>
   </div>
 </section>
