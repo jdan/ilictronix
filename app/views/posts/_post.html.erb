@@ -18,10 +18,12 @@
   <div class="else">
     <header>
       <span><%= link_to post.title, post %></span>
-      <span class="right">
-        <i class="icon-comment"></i>
-        <span class="comments-count"><%= post.comments.count %></span>
-      </span>
+      <a href="<%= post_path(post) %>#comments">
+        <span class="right">
+          <i class="icon-comment"></i>
+          <span class="comments-count"><%= post.comments.count %></span>
+        </span>
+      </a>
     </header>
     <div class="fade-arrow"></div>
     <article>
