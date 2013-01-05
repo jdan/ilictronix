@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def attach
     @user = User.find(params[:id])
     if params[:roles]
+
+      # we cannot remove `god` from any user
       if @user.has_role? :god
         should_have_god = true
       end
