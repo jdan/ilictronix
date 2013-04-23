@@ -16,7 +16,7 @@ class String
     # TODO: cache
     def fetch_code(url)
       fmt = URI.encode("http://soundcloud.com/oembed?format=json&url=#{url}&iframe=true")
-      JSON.parse(Net::HTTP.get(URI.parse(fmt)))['html']
+      JSON.parse(Net::HTTP.get(URI.parse(fmt)))['html'] rescue url
     end
     self.gsub(/^http:\/\/soundcloud.com\/(.+)\/(.+)$/) { |m| fetch_code m }
   end
