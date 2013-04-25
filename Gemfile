@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.8'
 
-gem 'rake', '10.0.3'
+gem 'rake', '10.0.4'
+
+# Artem told me to use thin
+gem 'thin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
