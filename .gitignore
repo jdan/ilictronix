@@ -20,3 +20,6 @@
 # database.yml
 /config/database.yml
 
+# Ignore secret token
+/config/secret.token
+
