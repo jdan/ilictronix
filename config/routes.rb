@@ -13,8 +13,6 @@ Ilictronix::Application.routes.draw do
   resources :comments
   resources :roles
 
-  get '/posts/page/:page' => 'posts#index', :as => 'posts_page'
-
   get '/tagged/:tag' => 'posts#tagged', :as => 'tag'
   get '/tagged/:tag/:page' => 'posts#tagged'
 

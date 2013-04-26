@@ -32,7 +32,10 @@ class PostsController < ApplicationController
       @posts = @tag.posts.where(:public => true).all(:offset => offset, :limit => 3)
     end
 
-    render 'index'
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render :json => @posts.to_json }
+    end
   end
 
   def show

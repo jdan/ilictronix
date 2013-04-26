@@ -39,7 +39,7 @@ $ ->
       if $('#pageno').length
         page = parseInt($('#pageno').text())
         waiting = true
-        $.getJSON '/posts/page/' + (page + 1) + '.json', (data) ->
+        $.getJSON '?page=' + (page + 1) + '.json', (data) ->
           $('#pageno').text(page + 1)
 
           data.forEach (post) =>
