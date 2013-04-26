@@ -31,14 +31,18 @@ $ ->
   $('#post_submit').on 'click', ->
     $('#post_public').val('true')
 
+  waiting = false
+
   $(window).scroll ->
-    if $(window).scrollTop() + $(window).height() == $(document).height()
+    if !waiting && $(window).scrollTop() + $(window).height() == $(document).height()
 
       if $('#pageno').length
         page = parseInt($('#pageno').text())
+        waiting = true
         $.getJSON '/posts/page/' + (page + 1) + '.json', (data) ->
           $('#pageno').text(page + 1)
 
           data.forEach (post) =>
             $('#skeleton').before(render_post(post))
+          waiting = false
 
