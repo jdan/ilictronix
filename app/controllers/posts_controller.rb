@@ -13,6 +13,11 @@ class PostsController < ApplicationController
     offset = 3 * (@page - 1)
 
     @posts = Post.where(:public => true).all(:offset => offset, :limit => 3)
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @posts.to_json }
+    end
   end
 
   def tagged

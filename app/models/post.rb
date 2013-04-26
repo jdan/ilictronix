@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  include Rails.application.routes.url_helpers
+  include ApplicationHelper # shame
 
   before_create :create_slug
   before_save :create_tags
@@ -35,11 +35,10 @@ class Post < ActiveRecord::Base
     {
       title: self.title,
       slug: self.slug,
-      url: posts_path(self),
       dom_id: "post_#{self.id}",
       date: { month: self.month,
               day: self.day },
-      content: self.content,
+      content: markdown(self.content),
       comments_count: self.comments.count,
       tags: self.tags.collect(&:title)
     }

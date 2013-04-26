@@ -1,13 +1,12 @@
+<span id="pageno" class="hidden"><%= @page %></span>
+
 <% if @posts.count > 0 %>
   <% @posts.each do |post| %>
     <%= render post %>
   <% end %>
 
-  <% unless @page == 1 %>
-    <%= link_to '< Prev', posts_page_path(@page - 1) %> | 
-  <% end %>
-
-  <%= link_to 'Next >', posts_page_path(@page + 1) %>
+  <%= render :partial => 'skeleton' %>
+  
 <% else %>
-  <p>Dey ain't nothin' here!</p>
+  <h1>Oops!</h1>
 <% end %>
