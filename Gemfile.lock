@@ -135,5 +135,6 @@ DEPENDENCIES
   redcarpet (= 1.17.2)
   sass-rails (~> 3.2.3)
   sorcery
+  sqlite3
   thin
   uglifier (>= 1.0.3)

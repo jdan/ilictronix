@@ -15,7 +15,7 @@ if Rails.env.development? || Rails.env.test?
 
   Ilictronix::Application.config.secret_token = token_file.read
 elsif Rails.env.production?
-  abort "!! No secret token found. Run export TIRAMISU_SECRET_TOKEN=`rake secret`" unless ENV['ILICTRONIX_SECRET_TOKEN']
+  abort "!! No secret token found. Run export ILICTRONIX_SECRET_TOKEN=`rake secret`" unless ENV['ILICTRONIX_SECRET_TOKEN']
 
   Ilictronix::Application.config.secret_token = ENV['ILICTRONIX_SECRET_TOKEN']
 end
