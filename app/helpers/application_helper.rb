@@ -26,6 +26,7 @@ end
 
 class String
   # convert spotify URLs to embed code
+  # doesn't need to be cached, no URL call made
   def to_spotify
     self.gsub(/^http:\/\/open.spotify.com\/track\/(.+)$/, 
       "<iframe src=\"https://embed.spotify.com/?uri=spotify:track:\\1\" width=\"550\" height=\"80\" frameborder=\"0\" allowtransparency=\"true\"></iframe>")
@@ -34,11 +35,24 @@ class String
   # convert soundcloud URLs to embed code
   def to_soundcloud
     # makes JSON call to soundcloud API to get embed code from URL
-    # TODO: cache
+    # TODO: benchmark
     def fetch_code(url)
-      fmt = URI.encode("http://soundcloud.com/oembed?format=json&url=#{url}&iframe=true")
-      JSON.parse(Net::HTTP.get(URI.parse(fmt)))['html'] rescue url
+      @cache = PlayerCache.find_by_url(url)
+
+      if !@cache.nil?
+        # cache hit, return the cached response
+        @cache.response
+      else
+        # cache miss
+        fmt = URI.encode("http://soundcloud.com/oembed?format=json&url=#{url}&iframe=true")
+        @response = JSON.parse(Net::HTTP.get(URI.parse(fmt)))['html'] rescue url
+
+        # save @response
+        PlayerCache.create(:url => url, :response => @response)
+        @response
+      end
     end
+
     self.gsub(/^https?:\/\/soundcloud.com\/(.+)\/(.+)$/) { |m| fetch_code m }
   end
 
