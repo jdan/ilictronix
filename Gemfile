@@ -2,15 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.8'
 
-gem 'rake', '10.0.4'
-
-# Artem told me to use thin
 gem 'thin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'mysql2'
 
 # sorcery for auth
 gem 'sorcery'
@@ -28,6 +23,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  gem 'sqlite3'
 end
 
 group :production do
